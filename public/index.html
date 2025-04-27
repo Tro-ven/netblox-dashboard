@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetBlox Staff Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-shield-lock"></i> NetBlox Staff
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-tab="dashboard">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-tab="create-report">
+                            <i class="bi bi-plus-circle"></i> Create Report
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-tab="all-logs">
+                            <i class="bi bi-list-check"></i> All Logs
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <div class="card bg-gray-800 border-0 mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5><i class="bi bi-clock-history me-2"></i>Recent Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div id="dashboard-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Report Tab -->
+        <div id="create-report" class="tab-content">
+            <div class="card bg-gray-800 border-0">
+                <div class="card-header bg-primary text-white">
+                    <h5><i class="bi bi-plus-circle me-2"></i>Create Moderation Report</h5>
+                </div>
+                <div class="card-body">
+                    <form id="actionForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Moderator</label>
+                                <input type="text" class="form-control bg-dark text-light border-dark" id="moderator" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">User</label>
+                                <input type="text" class="form-control bg-dark text-light border-dark" id="user" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">User ID</label>
+                                <input type="text" class="form-control bg-dark text-light border-dark" id="user_id" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Action</label>
+                                <select class="form-select bg-dark text-light border-dark" id="action" required>
+                                    <option value="warn">Warning</option>
+                                    <option value="mute">Mute</option>
+                                    <option value="ban">Ban</option>
+                                    <option value="kick">Kick</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Reason</label>
+                            <textarea class="form-control bg-dark text-light border-dark" id="reason" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Duration (optional)</label>
+                            <input type="text" class="form-control bg-dark text-light border-dark" id="duration" placeholder="e.g., 7d, 30m, permanent">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> Submit Report
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- All Logs Tab -->
+        <div id="all-logs" class="tab-content">
+            <div class="card bg-gray-800 border-0">
+                <div class="card-header bg-primary text-white">
+                    <h5><i class="bi bi-list-check me-2"></i>All Moderation Logs</h5>
+                </div>
+                <div class="card-body">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-dark border-dark text-light">
+                            <i class="bi bi-search"></i>
+                        </span>
+                        <input type="text" id="logsSearch" class="form-control bg-dark text-light border-dark" placeholder="Search logs...">
+                    </div>
+                    <div id="logs-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

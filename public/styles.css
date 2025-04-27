@@ -1,0 +1,54 @@
+body {
+    background-color: #121218;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bg-gray-800 {
+    background-color: #1e1e2d !important;
+}
+
+.navbar-brand {
+    font-weight: 600;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.table {
+    --bs-table-bg: #1e1e2d;
+    --bs-table-color: #e0e0e0;
+    --bs-table-border-color: #2d2d3d;
+}
+
+.form-control, .form-select {
+    background-color: #121218;
+    border-color: #2d2d3d;
+    color: #e0e0e0;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #121218;
+    border-color: #0d6efd;
+    color: #e0e0e0;
+}
+
+.list-group-item {
+    background-color: #1e1e2d;
+    border-color: #2d2d3d;
+}
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        padding-top: 10px;
+    }
+    .nav-link {
+        padding: 8px 15px;
+    }
+}
